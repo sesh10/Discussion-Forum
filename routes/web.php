@@ -18,6 +18,10 @@ Route::resource('discussions', 'discussionController');
 Route::resource('discussions/{discussion_id}/replies', 'repliesController');
 Route::resource('groups', 'GroupUserController');
 
+Route::get('groups/{group_id}/search', "liveSearch@search");
+Route::get('groups/{group_id}/search/action',"liveSearch@action")->name('liveSearch.action');
+Route::post('groups/{group_id}/search/addUser','liveSearch@addUser' )->name("liveSearch.addUser");
+
 Route::get('replies/like/{id}', ['as' => 'replies.like', 'uses' => 'LikeController@likeReply']);
 Route::get('discussions/like/{id}', ['as' => 'discussions.like', 'uses' => 'LikeController@likeDiscussion']);
 

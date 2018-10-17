@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Group;
+use App\Group_User;
 
 class GroupUserController extends Controller
 {
@@ -36,6 +39,21 @@ class GroupUserController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'groupName' => 'required',
+        ]);
+                // Create Post
+        $group = new Group;
+        $group->groupName = $request->input('groupName');
+        $group->admin_id = Auth::user()->id;
+
+        $group->save();
+
+        $user = Auth::user();
+        $group->users()->attach($user);
+
+        return redirect("groups");
+
     }
 
     /**
@@ -47,6 +65,8 @@ class GroupUserController extends Controller
     public function show($id)
     {
         //
+        return view('groups.show')->with('group_id',$id);
+
     }
 
     /**
