@@ -44,12 +44,15 @@ class User extends Authenticatable
     {
         return $this->belongsToMany('App\Group','group_user');
     }
-    public function availableUsers()
-    {
-        // $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
-        // return User::whereNotIn('id', $ids)->get();
-
-        $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
-        return User::whereNotIn('id', $ids);
+    // public function availableUsers()
+    // {
+    //     // $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
+    //     // return User::whereNotIn('id', $ids)->get();
+    //
+    //     $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
+    //     return User::whereNotIn('id', $ids);
+    // }
+    public function private_discussions(){
+      return $this->hasMany('App\PrivateDiscussion');
     }
 }

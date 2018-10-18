@@ -15,6 +15,9 @@ class CreatePrivateDiscussionsTable extends Migration
     {
         Schema::create('private_discussions', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('category');
+            $table->string('title');
+            $table->string('content');        
             $table->timestamps();
         });
     }

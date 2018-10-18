@@ -18,6 +18,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('category');
             $table->string('title');
             $table->string('content');
+          
             $table->timestamps();
         });
     }

@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="">
-      <a href="{{URL::to('groups/'.$group_id.'/search')}}" class="btn btn-primary">Add Members</a>
+      @if(Auth::user()->id == $group->admin_id)
+        <a href="{{URL::to('groups/'.$group->id.'/search')}}" class="btn btn-primary">Add Members</a>
+      @endif
+      
     </div>
 @endsection

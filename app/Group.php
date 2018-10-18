@@ -12,9 +12,14 @@ class Group extends Model
     public $primaryKey = 'id';
     // Timestamps
     public $timestamps = true;
-    
+
     public function users()
-   {
-       return $this->belongsToMany('App\User', 'group_user');
-   }
+     {
+         return $this->belongsToMany('App\User', 'group_user');
+     }
+
+    public function private_discussions()
+    {
+        return $this->hasMany('App\PrivateDiscussion');
+    }
 }

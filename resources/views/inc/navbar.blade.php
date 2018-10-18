@@ -41,7 +41,7 @@
                 <a class="nav-link" href="{{URL::to('discussions/create')}}">Start Discussion</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{{URL::to('groups/create')}}">Create Group</a>
+                <a class="nav-link" href="{{URL::to('groups')}}">Your Groups</a>
               </li>
               <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -17,6 +17,8 @@ class GroupUserController extends Controller
     public function index()
     {
         //
+        $groups = Auth::user()->groups()->get();
+        return view("groups.myGroups")->with('groups',$groups);
     }
 
     /**
@@ -62,10 +64,12 @@ class GroupUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($group_id)
     {
         //
-        return view('groups.show')->with('group_id',$id);
+        $group = Group::find($group_id);
+
+        return view('groups.show')->with('group',$group);
 
     }
 
