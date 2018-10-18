@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use App\Group_User;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,8 +40,16 @@ class User extends Authenticatable
     public function likes(){
         return $this->hasMany('App\Like');
     }
-    public function roles()
+    public function groups()
     {
-        return $this->belongsToMany('App\Group', 'user__groups');
+        return $this->belongsToMany('App\Group','group_user');
+    }
+    public function availableUsers()
+    {
+        // $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
+        // return User::whereNotIn('id', $ids)->get();
+
+        $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
+        return User::whereNotIn('id', $ids);
     }
 }

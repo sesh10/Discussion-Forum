@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "17a4bde00c1feafead2b6031ea06088c",
+    "content-hash": "3c158dfdac1be5cbe0b5e964b2d8d9ba",
     "packages": [
         {
             "name": "ckeditor/ckeditor",
@@ -927,6 +927,50 @@
                 "psr-3"
             ],
             "time": "2017-06-19T01:22:40+00:00"
+        },
+        {
+            "name": "musonza/groups",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/musonza/groups.git",
+                "reference": "bb26b1ae204b36b0e031a4d22e4ce20143028b3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/musonza/groups/zipball/bb26b1ae204b36b0e031a4d22e4ce20143028b3c",
+                "reference": "bb26b1ae204b36b0e031a4d22e4ce20143028b3c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Musonza\\Groups\\": "src/"
+                },
+                "classmap": [
+                    "tests/GroupsTestCase.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tinashe Musonza",
+                    "email": "tinashemusonza@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 user groups package",
+            "keywords": [
+                "conversations",
+                "groups",
+                "laravel"
+            ],
+            "time": "2016-04-02T05:24:09+00:00"
         },
         {
             "name": "nesbot/carbon",

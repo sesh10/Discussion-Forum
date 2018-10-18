@@ -18,41 +18,56 @@
         </tr>
        </thead>
        <tbody>
-
+         @if($users->count() > 0)
+           @foreach($users as $user)
+             <tr>
+               <td>{{$user->name}}</td>
+               <td id="email">{{$user->email}}</td>
+               <td>
+                 {!! Form::open(['action' => ["LiveSearch@addUser",$group->id,$user->id], 'method' => 'POST']) !!}
+                 {{Form::submit('Add', ['class'=>'btn btn-primary'])}}
+                 {!! Form::close() !!}
+               </td>
+             </tr>
+           @endforeach
+           @else
+           <p>No Users found</p>
+           @endif
        </tbody>
       </table>
      </div>
     </div>
 @endsection
-@section('js')
+{{-- @section('js')
   <script>
 
   $(document).ready(function(){
-      var urlLike = '{{ route('liveSearch.addUser', $group->id) }}';
-      console.log({{$group->id}});
+      var urlLike = '{{ route('liveSearch.addUser', $group_id) }}';
+      const group_id = {{$group_id}}
+      console.log(group_id);
       fetch_customer_data();
 
       function fetch_customer_data(query = '')
       {
         console.log("function called");
-        console.log({{$group->id}});
+        console.log(group_id);
 
       $.ajax({
-         url:"{{ route('liveSearch.action',$group->id) }}",
+         url:"{{ route('liveSearch.action',$group_id) }}",
          method:'GET',
          data:{query:query},
          dataType:'json',
          success:function(data)
          {
+           console.log(group_id);
 
           $('tbody').html(data.table_data);
           $('#total_records').text(data.total_data);
           $(".add").on('click',function(event) {
+            console.log(group_id);
 
             console.log(event.target.parentNode.previousElementSibling.innerText);
             event.preventDefault();
-            // user_id = event.target.dataset['user_id'];
-
             email = event.target.parentNode.previousElementSibling.innerText;
             $.ajaxSetup({
                 headers: {
@@ -62,19 +77,16 @@
 
             $.ajax({
                     type: 'post',
-                    url: '{{ route('liveSearch.addUser', $group->id) }}',
+                    url: urlLike,
                     data: {
                         email : email
-                    },
-                    success: function(){
-                      console.log("done");
-                      event.target.parentNode.parentNode.remove();
                     }
+                })
+                .done(function() {
+                  console.log(group_id);
+
+                  event.target.parentNode.parentNode.remove();
                 });
-                // .done(function() {
-                //   console.log("done");
-                //   event.target.parentNode.parentNode.remove();
-                // });
             });
          }
       })
@@ -90,4 +102,4 @@
 
 
   </script>
-@endsection
+@endsection --}}
