@@ -69,7 +69,9 @@ class GroupUserController extends Controller
         //
         $group = Group::find($group_id);
 
-        return view('groups.show')->with('group',$group);
+        $groupPosts = $group->private_discussions()->get();
+
+        return view('groups.show')->with('group',$group)->with('posts',$groupPosts);
 
     }
 

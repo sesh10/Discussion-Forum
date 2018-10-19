@@ -55,4 +55,8 @@ class User extends Authenticatable
     public function private_discussions(){
       return $this->hasMany('App\PrivateDiscussion');
     }
+    public function private_replies(){
+        return $this->hasMany('App\PrivateReplies');
+    }
+    
 }

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PrivateDiscussion extends Model
+class PrivateReplies extends Model
 {
     //
-    protected $table = 'private_discussion';
+    protected $table = 'private_replies';
     // Primary Key
     public $primaryKey = 'id';
     // Timestamps
@@ -17,11 +17,8 @@ class PrivateDiscussion extends Model
         return $this->belongsTo('App\User');
     }
 
-    public function group(){
-        return $this->belongsTo('App\Group');
+    public function private_discussion(){
+        return $this->belongsTo('App\PrivateDiscussion');
     }
-
-    public function replies(){
-        return $this->hasMany('App\PrivateReplies');
-    }
+    
 }

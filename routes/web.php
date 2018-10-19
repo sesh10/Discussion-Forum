@@ -17,6 +17,8 @@ Route::get('/', function(){
 Route::resource('discussions', 'discussionController');
 Route::resource('discussions/{discussion_id}/replies', 'repliesController');
 Route::resource('groups', 'GroupUserController');
+//private disccussion routes
+Route::resource('groups/{group_id}/discussions','privateDiscussionController');
 
 Route::get('groups/{group_id}/search', "LiveSearch@search")->name('liveSearch.search');
 Route::get('groups/{group_id}/search/action',"liveSearch@action")->name('liveSearch.action');
