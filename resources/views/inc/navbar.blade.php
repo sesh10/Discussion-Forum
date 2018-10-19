@@ -48,11 +48,11 @@
                 Category
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a href="/discussions/topics/sports" class="dropdown-item">Sports</a>
-                  <a href="/discussions/topics/technology" class="dropdown-item">Technology</a>
-                  <a href="/discussions/topics/science" class="dropdown-item">Science</a>
-                  <a href="/discussions/topics/politics" class="dropdown-item">Politics</a>
-                  <a href="/discussions/topics/education" class="dropdown-item">Education</a>
+                  <a href="discussions/topic/sports" class="dropdown-item">Sports</a>
+                  <a href="discussions/topic/technology" class="dropdown-item">Technology</a>
+                  <a href="discussions/topic/science" class="dropdown-item">Science</a>
+                  <a href="discussions/topic/politics" class="dropdown-item">Politics</a>
+                  <a href="discussions/topic/education" class="dropdown-item">Education</a>
               </div>
             </li>
           </ul>

@@ -141,6 +141,7 @@ class discussionController extends Controller
             return redirect('discussions')->with('error', 'Unauthorized Page');
         }
 
+        $comments = $post->replies()->delete();
 
 
         $post->delete();
@@ -178,5 +179,12 @@ class discussionController extends Controller
             $like->save();
         }
         return null;
+    }
+
+    public function category($category){
+      $posts = Discussion::where('category',$category)->get();
+
+      return view("discussions.index")->with('posts',$posts);
+
     }
 }

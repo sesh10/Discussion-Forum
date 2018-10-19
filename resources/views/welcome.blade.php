@@ -1,96 +1,97 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SKForum</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        {{-- <link rel="stylesheet" href="/stylesheets/landing.css"> --}}
+        <style media="screen">
+        html, body {
+              height:100%;
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
             }
 
-            .full-height {
-                height: 100vh;
+            body {
+              background-color: white;
+              background-image: url('https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&h=350');
+              background-size: 100% 100%;
+              background-repeat: no-repeat;
+              background-position: left top;
             }
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
+            #landing-header {
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            padding-top: 40vh;
             }
 
-            .position-ref {
-                position: relative;
+            #landing-header h1 {
+            color: #382434;
+            font-weight: bold;
             }
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
+            .slideshow {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            }
+            img.bg {
+            /* Set rules to fill background */
+            min-height: 100%;
+            min-width: 1024px;
+
+            /* Set up proportionate scaling */
+            width: 100%;
+            height: auto;
+
+            /* Set up positioning */
+            position: fixed;
+            top: 0;
+            left: 0;
             }
 
-            .content {
-                text-align: center;
+            @media screen and (max-width: 1024px) { /* Specific to this particular image */
+            img.bg {
+              left: 50%;
+              margin-left: -512px;   /* 50% */
+            }
+            }
+            .slideshow li {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 0;
             }
 
-            .title {
-                font-size: 84px;
+            .slideshow li:nth-child(1) {
+            background-image: url("https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&h=350");
+            }
+            .slideshow li:nth-child(2) {
+            background-image: url("https://images.pexels.com/photos/6385/hands-people-woman-meeting.jpg?auto=compress&cs=tinysrgb&h=350");
+            animation-delay: 10s;
             }
 
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
         </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+
+    <div id="bg"></div>
+    <div id="landing-header">
+ 		<h1>Welcome to SKForum!</h1>
+		<a href="discussions" class="btn btn-lg btn-success">View All Discussions</a>
+    </div>

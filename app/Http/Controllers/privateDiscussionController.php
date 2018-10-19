@@ -127,6 +127,9 @@ class privateDiscussionController extends Controller
             return redirect('groups/'.$group_id)->with('error', 'Unauthorized Page');
         }
 
+        $comments = $post->private_replies()->delete();
+
+
 
 
         $post->delete();

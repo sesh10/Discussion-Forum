@@ -1,5 +1,6 @@
 <?php
 
+use App\Discussion;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,7 +16,9 @@ Route::get('/', function(){
 });
 
 Route::resource('discussions', 'discussionController');
+
 Route::resource('discussions/{discussion_id}/replies', 'repliesController');
+Route::get('discussions/topic/{category}','discussionController@category');
 Route::resource('groups', 'GroupUserController');
 //private disccussion routes
 Route::resource('groups/{group_id}/discussions','privateDiscussionController');
