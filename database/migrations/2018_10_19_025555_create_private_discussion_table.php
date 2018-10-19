@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrivateRepliesTable extends Migration
+class CreatePrivateDiscussionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreatePrivateRepliesTable extends Migration
      */
     public function up()
     {
-        Schema::create('private_replies', function (Blueprint $table) {
+        Schema::create('private_discussion', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('category');
+            $table->string('title');
             $table->string('content');
+            $table->integer('user_id');
+            $table->integer('group_id');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreatePrivateRepliesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('private_replies');
+        Schema::dropIfExists('private_discussions');
     }
 }

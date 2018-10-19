@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PrivateDiscussion;
+use App\PrivateReplies;
 
 class privateDiscussionController extends Controller
 {
@@ -66,8 +67,9 @@ class privateDiscussionController extends Controller
     {
         //
         $post = PrivateDiscussion::find($discussion_id);
-
-        return view("groups.privateDiscussions.show")->with("post",$post)->with('group_id',$group_id);
+        $comments = $post->private_replies()->get();
+        // $comment = PrivateReplies::orderBy('created_at','desc')->where('private_discussion_id',$discussion_id)->get();
+        return view("groups.privateDiscussions.show")->with("post",$post)->with('group_id',$group_id)->with('comments',$comments);
     }
 
     /**

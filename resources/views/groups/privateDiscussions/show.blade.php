@@ -30,7 +30,7 @@
 
 
 
-    {{-- <div class="card">
+    <div class="card">
       <div class="card-body">
         <div class="text-right">
           <a class="btn btn-success" href='{{$post->id}}/replies/create'>Add Your Comment</a>
@@ -65,12 +65,12 @@
                   </div>
                 </div>
               </div>
-            @endforeach --}}
+            @endforeach
 
           {{-- <% }) %> --}}
-          {{-- </div>
+          </div>
           @endif
 
       </div>
-    </div> --}}
+    </div>
 @endsection

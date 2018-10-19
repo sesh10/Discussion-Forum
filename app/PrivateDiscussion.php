@@ -21,7 +21,7 @@ class PrivateDiscussion extends Model
         return $this->belongsTo('App\Group');
     }
 
-    public function replies(){
+    public function private_replies(){
         return $this->hasMany('App\PrivateReplies');
     }
 }
