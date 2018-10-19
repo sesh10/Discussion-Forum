@@ -11,7 +11,7 @@
         <h5 class="card-title">{{$post->title}}</h5>
         <p class="card-text">{{$post->content}}</p>
         <blockquote class="blockquote mb-0">
-          <footer class="blockquote-footer">Started by  <cite title="Source Title">user</cite></footer>
+          <footer class="blockquote-footer">Started by  <cite title="Source Title">{{$post->user->name}}</cite></footer>
         </blockquote>
         @if(!Auth::guest())
           @if(Auth::user()->id === $post->user_id)

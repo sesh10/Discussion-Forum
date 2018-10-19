@@ -24,7 +24,7 @@
                     </p>
                     <blockquote class="blockquote mb-0">
                         <footer class="blockquote-footer">Started by
-                            user
+                            {{$post->user->name}}
                         </footer>
                     </blockquote>
                     @if(Auth::check())

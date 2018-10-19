@@ -11,7 +11,7 @@
         <h5 class="card-title">{{$post->title}}</h5>
         <p class="card-text">{{$post->content}}</p>
         <blockquote class="blockquote mb-0">
-          <footer class="blockquote-footer">Started by  <cite title="Source Title">user</cite></footer>
+          <footer class="blockquote-footer">Started by  <cite title="Source Title">{{$post->user->name}}</cite></footer>
         </blockquote>
         @if(!Auth::guest())
           @if(Auth::user()->id === $post->user_id)
@@ -33,7 +33,7 @@
     <div class="card">
       <div class="card-body">
         <div class="text-right">
-          <a class="btn btn-success" href='{{$post->id}}/replies/create'>Add Your Comment</a>
+          <a class="btn btn-success" href='{{$post->id}}/comments/create'>Add Your Comment</a>
         </div>
         <hr>
          <h4><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
@@ -53,8 +53,8 @@
                         @if(Auth::user()->id === $comment->user_id)
                         <div class="float-right">
                           <a class="btn btn-xs btn-warning"
-                             href='{{$post->id}}/replies/{{$comment->id}}/edit'>Edit</a>
-                             {!!Form::open(['action' => ['repliesController@destroy',$post->id, $comment->id], 'method' => 'POST', 'style'=>"display:inline-block"])!!}
+                             href='{{$post->id}}/comments/{{$comment->id}}/edit'>Edit</a>
+                             {!!Form::open(['action' => ['privateRepliesController@destroy',$group_id,$post->id, $comment->id], 'method' => 'POST', 'style'=>"display:inline-block"])!!}
                                    {{Form::hidden('_method', 'DELETE')}}
                                    {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
                              {!!Form::close()!!}

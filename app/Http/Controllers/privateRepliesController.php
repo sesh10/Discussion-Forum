@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\PrivateReplies;
+use App\PrivateDiscussion;
+
 
 class privateRepliesController extends Controller
 {
@@ -21,9 +24,12 @@ class privateRepliesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($group_id, $discussion_id)
     {
         //
+        $post = PrivateDiscussion::find($discussion_id);
+
+        return view("groups.privateReplies.create")->with('post',$post)->with('group_id',$group_id);
     }
 
     /**
@@ -32,9 +38,18 @@ class privateRepliesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$group_id,$discussion_id)
     {
         //
+        $comment = new PrivateReplies;
+        $comment->content = $request->input('body');
+        $comment->private_discussion_id = $discussion_id;
+        $comment->user_id = auth()->user()->id;
+
+        $comment->save();
+
+        return redirect('groups/'.$group_id.'/discussions/'.$discussion_id)->with('success', 'You replied succefully');
+
     }
 
     /**
@@ -54,9 +69,14 @@ class privateRepliesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($group_id,$discussion_id,$id)
     {
         //
+        $comment = PrivateReplies::find($id);
+        $post = PrivateDiscussion::find($discussion_id);
+
+
+        return view("groups.privateReplies.edit")->with('comment',$comment)->with('post',$post)->with('group_id',$group_id);
     }
 
     /**
@@ -66,9 +86,19 @@ class privateRepliesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$group_id,$discussion_id, $id)
     {
         //
+        $this->validate($request, [
+            'body' => 'required',
+        ]);
+                // Create Post
+        $comment = PrivateReplies::find($id);
+        $comment->content = $request->input('body');
+
+        $comment->save();
+
+        return redirect('groups/'.$group_id.'/discussions/'.$discussion_id)->with('success', 'Comment Updated Succefully');
     }
 
     /**
@@ -77,8 +107,19 @@ class privateRepliesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($group_id,$discussion_id,$id)
     {
         //
+        $comment = PrivateReplies::find($id);
+
+        // Check for correct user
+        if(auth()->user()->id !==$comment->user_id){
+            return redirect('discussions')->with('error', 'Unauthorized Page');
+        }
+
+
+
+        $comment->delete();
+        return redirect()->back()->with('success', 'Comment Removed');
     }
 }
