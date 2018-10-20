@@ -129,9 +129,6 @@ class privateDiscussionController extends Controller
 
         $comments = $post->private_replies()->delete();
 
-
-
-
         $post->delete();
         return redirect('groups/'.$group_id)->with('success', 'Post Removed');
     }

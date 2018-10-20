@@ -15,7 +15,7 @@
             <div class="card" data-postid="{{ $post->id }}">
                 <div class="card-header">
                     {{strtoupper($post->category)}}
-                        <span class="float-right">{{$post->created_at}}</span>
+                        <span class="float-right">{{date("d M Y", strtotime($post->created_at))}}</span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{{$post->title}}</h5>
