@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="">
+    <div class="container">
       @if (Auth::check())
         @if(Auth::user()->id == $group->admin_id)
           <a href="{{URL::to('groups/'.$group->id.'/search')}}" class="btn btn-primary float-right">Add Members</a>

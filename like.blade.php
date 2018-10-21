@@ -29,12 +29,12 @@
                     </blockquote>
                     @if(Auth::check())
                     <div class="" style="display: inline-block;">
-                      <a href="#" class="like btn btn-sm btn-primary">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
+                      <a href="#" class="like btn btn-sm btn-primary">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
                       <a href="#" class="like btn btn-sm btn-primary">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
 
                     </div>
                     @endif
-                    <a href="{{URL::to("discussions/$post->id")}}" class="btn btn-success btn-sm">Participate</a>
+                    <a href="{{URL::to("discussions/$post->id")}}" class="btn btn-success">Participate</a>
                 </div>
             </div>
           @endforeach

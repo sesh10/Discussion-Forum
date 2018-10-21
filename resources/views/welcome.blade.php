@@ -12,7 +12,7 @@
 
             body {
               background-color: white;
-              background-image: url('https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&h=350');
+              background-image: url('https://cdn.pixabay.com/photo/2018/05/30/09/07/analyzing-people-3441040__340.jpg');
               background-size: 100% 100%;
               background-repeat: no-repeat;
               background-position: left top;
@@ -26,7 +26,7 @@
             }
 
             #landing-header h1 {
-            color: #382434;
+            color: white;
             font-weight: bold;
             }
 
@@ -50,6 +50,8 @@
             width: 100%;
             height: auto;
 
+
+
             /* Set up positioning */
             position: fixed;
             top: 0;
@@ -71,17 +73,22 @@
             background-size: cover;
             background-position: 50% 50%;
             background-repeat: no-repeat;
-            opacity: 0;
-            z-index: 0;
+            opacity: 0.5;
+            z-index: -1;
             }
 
             .slideshow li:nth-child(1) {
-            background-image: url("https://images.pexels.com/photos/7096/people-woman-coffee-meeting.jpg?auto=compress&cs=tinysrgb&h=350");
+            background-image: url("https://cdn.pixabay.com/photo/2018/05/30/09/07/analyzing-people-3441040__340.jpg");
             }
             .slideshow li:nth-child(2) {
-            background-image: url("https://images.pexels.com/photos/6385/hands-people-woman-meeting.jpg?auto=compress&cs=tinysrgb&h=350");
+            background-image: url("https://cdn.pixabay.com/photo/2018/05/30/09/07/analyzing-people-3441040__340.jpg");
             animation-delay: 10s;
             }
+
+            .button{
+              border-radius: 30px;
+            }
+
 
         </style>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
@@ -93,5 +100,5 @@
     <div id="bg"></div>
     <div id="landing-header">
  		<h1>Welcome to SKForum!</h1>
-		<a href="discussions" class="btn btn-lg btn-success">View All Discussions</a>
+		<a href="discussions" class="btn btn-lg btn-primary button">View All Discussions</a>
     </div>

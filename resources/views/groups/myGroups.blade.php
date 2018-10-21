@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="">
+    <div class="container">
       {{-- {{$groups}} --}}
       <a href="groups/create"><button class="btn btn-primary btn-lg float-right" >Create New Group</button></a>
       <div class="" >

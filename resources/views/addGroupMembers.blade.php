@@ -3,7 +3,8 @@
 @section('content')
   {{-- <h1>{{$group}}</h1>
   <h2>{{$users}}</h2> --}}
-    <div class="">
+  
+    <div class="container">
       <div class="form-group">
         <input type="text" name="search" id="search" class="form-control" placeholder="Search Customer Data" />
      </div>

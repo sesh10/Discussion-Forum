@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="container">
     <h1>Create Discussion</h1>
     {!! Form::open(['action' => ['privateDiscussionController@store',$group_id], 'method' => 'POST']) !!}
         <div class="form-group">
@@ -18,4 +19,6 @@
 
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
     {!! Form::close() !!}
+  </div>
+
 @endsection

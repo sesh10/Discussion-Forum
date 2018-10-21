@@ -33,7 +33,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto" id="myDIV">
               <li class="nav-item active">
                 <a class="nav-link" href="{{URL::to('discussions')}}">Discussions<span class="sr-only">(current)</span></a>
               </li>
@@ -63,13 +63,13 @@
                 @guest
                     <li class="nav-item">
                         <a class="nav-link btn  btn-danger btn-sm"
-                         style="marginRight : 5px; color : white"
+                         style="marginRight : 5px; color : white; borderRadius: 10px;"
                          href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                     <li class="nav-item">
                         @if (Route::has('register'))
                             <a class="nav-link btn btn-danger btn-sm"
-                             style="marginRight : 5px; color : white"
+                             style="marginRight : 5px; color : white; borderRadius: 10px;"
                             href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     </li>
