@@ -122,7 +122,7 @@ class discussionController extends Controller
 
         $post->save();
 
-        return redirect('/discussions')->with('success', 'Post Updated');
+        return redirect('/discussions/'.$id)->with('success', 'Discussion Updated');
     }
 
     /**

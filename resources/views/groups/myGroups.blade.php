@@ -3,8 +3,11 @@
 @section('content')
     <div class="container">
       {{-- {{$groups}} --}}
-      <a href="groups/create"><button class="btn btn-primary btn-lg float-right" >Create New Group</button></a>
-      <div class="" >
+      <div class="" style="margin:10px auto;  ">
+        <a href="groups/create" ><button class="btn btn-primary btn-lg" ><i class="fas fa-users" style="marginRight: 20px;"></i>Create New Group</button></a>
+
+      </div>
+      <div class="" style="width:100%;">
         @if ($groups->count() > 0)
           <ul class="list-group">
             @foreach ($groups as $group)
@@ -14,7 +17,9 @@
         @else
           <h5>No groups joined</h5>
         @endif
+
       </div>
+
 
 
 

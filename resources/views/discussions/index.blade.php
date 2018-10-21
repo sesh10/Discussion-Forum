@@ -12,19 +12,19 @@
     <div class="container">
       @if(count($posts) > 0)
           @foreach($posts as $post)
-            <div class="card" data-postid="{{ $post->id }}">
+            <div class="card" id="discussionIndex" style="margin-bottom: 15px;" data-postid="{{ $post->id }}">
                 <div class="card-header">
-                    {{strtoupper($post->category)}}
+                    <strong>{{strtoupper($post->category)}}</strong>
                         <span class="float-right">{{date("d M Y", strtotime($post->created_at))}}</span>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{$post->title}}</h5>
+                    <h5 class="card-title"><strong>{{$post->title}}</strong></h5>
                     <p class="card-text">
                         {{$post->content}}
                     </p>
                     <blockquote class="blockquote mb-0">
                         <footer class="blockquote-footer">Started by
-                            {{$post->user->name}}
+                            <i>{{$post->user->name}}</i>
                         </footer>
                     </blockquote>
                     @if(Auth::check())

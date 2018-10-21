@@ -5,7 +5,7 @@
     <h1>Edit Discusson</h1>
     {!! Form::open(['action' => ['discussionController@update', $post->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
-          {{Form::label('category', 'Category')}}
+          {{Form::label('category', 'Category ')}}
           {{Form::select('category', ['sports' => 'Sports', 'technology' => 'Technology', 'education'=>'Education', 'politics'=>'Politics'], $post->category)}}
         </div>
         <div class="form-group">

@@ -2,13 +2,13 @@
 
 @section('content')
   <div class="container">
-    <div class="card">
+    <div class="card" style="margin: 20px 0px;">
       <div class="card-header">
-        {{strtoupper($post->category)}}
+        <strong>{{strtoupper($post->category)}}</strong>
         <span class="float-right">{{$post->created_at}}</span>
       </div>
       <div class="card-body">
-        <h5 class="card-title">{{$post->title}}</h5>
+        <h5 class="card-title"><strong>{{$post->title}}</strong></h5>
         <p class="card-text">{{$post->content}}</p>
         <blockquote class="blockquote mb-0">
           <footer class="blockquote-footer">Started by  <cite title="Source Title">{{$post->user->name}}</cite></footer>
@@ -30,10 +30,10 @@
 
 
 
-    <div class="card">
+    <div class="card" style="marginBottom: 20px;">
       <div class="card-body">
         <div class="text-right">
-          <a class="btn btn-success" href='{{$post->id}}/replies/create'>Add Your Comment</a>
+          <a class="btn btn-success" href='{{$post->id}}/replies/create'><i class="fas fa-comments fa-2x" style="marginRight: 10px;"></i>Add Your Comment</a>
         </div>
         <hr>
          <h4><strong>Comments <span class="glyphicon glyphicon glyphicon-comment" aria-hidden="true"></span></strong></h4>
@@ -44,11 +44,11 @@
                 <div class="card">
                   <div class="card-body">
                     <div class="float-left">
-                      <p class="card-title">{{$comment->user->name}}</p>
+                      <h6 class="card-title"><strong>{{$comment->user->name}}</strong></h6>
                       <p class="card-text">{{$comment->content}}</p>
                     </div>
                     <div class="float-right">
-                      <p>{{$comment->created_at}}</p>
+                      <p>{{date("d M Y", strtotime($comment->created_at))}}</p>
                       @if(!Auth::guest())
                         @if(Auth::user()->id === $comment->user_id)
                         <div class="float-right">

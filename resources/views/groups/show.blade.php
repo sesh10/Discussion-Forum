@@ -4,36 +4,36 @@
     <div class="container">
       @if (Auth::check())
         @if(Auth::user()->id == $group->admin_id)
-          <a href="{{URL::to('groups/'.$group->id.'/search')}}" class="btn btn-primary float-right">Add Members</a>
+          <a href="{{URL::to('groups/'.$group->id.'/search')}}" class="btn btn-primary float-right" style="marginBottom:15px;marginTop:5px"><i class="fas fa-plus"style="marginRight: 12px;"></i>Add Members</a>
         @endif
-        <a href="{{$group->id}}/discussions/create" class="btn btn-primary btn-lg">Start New Discussion</a>
+        <a href="{{$group->id}}/discussions/create" class="btn btn-primary" style="marginBottom:15px;marginTop:5px">Start New Discussion</a>
 
         @if(count($posts) > 0)
             @foreach($posts as $post)
               <div class="card" data-postid="{{ $post->id }}">
                   <div class="card-header">
-                      {{strtoupper($post->category)}}
-                          <span class="float-right">{{$post->created_at}}</span>
+                    <strong>{{strtoupper($post->category)}}</strong>
+                    <span class="float-right">{{date("d M Y", strtotime($post->created_at))}}</span>
                   </div>
                   <div class="card-body">
-                      <h5 class="card-title">{{$post->title}}</h5>
+                    <h5 class="card-title"><strong>{{$post->title}}</strong></h5>
                       <p class="card-text">
                           {{$post->content}}
                       </p>
-                      <blockquote class="blockquote mb-0">
+                      <blockquote class="blockquote mb-0" style="marginBottom:20px;">
                           <footer class="blockquote-footer">Started by
                               {{-- {{$post->user()->name}} --}}
-                              User
+                              <i>{{$post->user->name}}</i>
                           </footer>
                       </blockquote>
                       @if(Auth::check())
                       <div class="" style="display: inline-block;">
-                        <a href="#" class="like">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a> |
-                        <a href="#" class="like">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
+                        <a href="#" class="like btn btn-sm btn-primary">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 1 ? 'You like this post' : 'Like' : 'Like'  }}</a>
+                        <a href="#" class="like btn btn-sm btn-primary">{{ Auth::user()->likes()->where('discussion_id', $post->id)->first() ? Auth::user()->likes()->where('discussion_id', $post->id)->first()->like == 0 ? 'You don\'t like this post' : 'Dislike' : 'Dislike'  }}</a>
 
                       </div>
                       @endif
-                      <a href="{{URL::to("groups/$group->id/discussions/$post->id")}}" class="btn btn-success">Participate</a>
+                      <a href="{{URL::to("groups/$group->id/discussions/$post->id")}}" class="btn btn-success btn-sm">Participate</a>
                   </div>
               </div>
             @endforeach
