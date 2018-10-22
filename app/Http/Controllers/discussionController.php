@@ -94,7 +94,7 @@ class discussionController extends Controller
         $post = Discussion::find($id);
 
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
+        if(auth()->user()->id != $post->user_id){
             return redirect('discussions')->with('error', 'Unauthorized Page');
         }
 
@@ -137,7 +137,7 @@ class discussionController extends Controller
         $post = Discussion::find($id);
 
         // Check for correct user
-        if(auth()->user()->id !==$post->user_id){
+        if(auth()->user()->id != $post->user_id){
             return redirect('discussions')->with('error', 'Unauthorized Page');
         }
 
@@ -152,7 +152,7 @@ class discussionController extends Controller
     public function postLikePost(Request $request)
     {
         $post_id = $request['postId'];
-        $is_like = $request['isLike'] === 'true';
+        $is_like = $request['isLike'] == 'true';
         $update = false;
         $post = Discussion::find($post_id);
         if (!$post) {

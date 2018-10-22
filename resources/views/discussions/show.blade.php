@@ -14,7 +14,7 @@
           <footer class="blockquote-footer">Started by  <cite title="Source Title">{{$post->user->name}}</cite></footer>
         </blockquote>
         @if(!Auth::guest())
-          @if(Auth::user()->id === $post->user_id)
+          @if(Auth::user()->id == $post->user_id)
           <div class="float-right">
             <a href="{{URL::to("discussions/$post->id/edit")}}" class="btn btn-warning">Edit</a>
 

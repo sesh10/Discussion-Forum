@@ -36,7 +36,7 @@
       function fetch_customer_data(query = '')
       {
         console.log("function called");
-        console.log({{$group->id}});
+        console.log({{$group->id}};
 
       $.ajax({
          url:"{{ route('liveSearch.action',$group->id) }}",
@@ -79,7 +79,7 @@
             });
          }
       })
-      }
+      
 
       $(document).on('keyup', '#search', function(){
       var query = $(this).val();
@@ -87,7 +87,7 @@
       });
 
 
-    });
+    
 
 
   </script>

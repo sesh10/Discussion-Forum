@@ -45,6 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Group','group_user');
     }
     // public function availableUsers()
+    // for debugging
     // {
     //     // $ids = Group_User::where('user_id', '=', $this->id)->pluck('user_id');
     //     // return User::whereNotIn('id', $ids)->get();
@@ -58,5 +59,5 @@ class User extends Authenticatable
     public function private_replies(){
         return $this->hasMany('App\PrivateReplies');
     }
-    
+
 }

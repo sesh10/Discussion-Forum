@@ -118,7 +118,7 @@ class repliesController extends Controller
         $comment = Reply::find($id);
 
         // Check for correct user
-        if(auth()->user()->id !==$comment->user_id){
+        if(auth()->user()->id != $comment->user_id){
             return redirect('discussions')->with('error', 'Unauthorized Page');
         }
 
